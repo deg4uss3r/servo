@@ -101,7 +101,7 @@ impl MediaQueryListMethods for MediaQueryList {
         self.upcast::<EventTarget>().add_event_listener(
             DOMString::from_string("change".to_owned()),
             listener,
-            AddEventListenerOptions { parent: EventListenerOptions { capture: false } },
+            AddEventListenerOptions { parent: EventListenerOptions { capture: false}, passive: false, once: false },
         );
     }
 

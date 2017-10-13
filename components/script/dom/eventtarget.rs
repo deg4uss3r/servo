@@ -597,6 +597,7 @@ impl EventTarget {
             } else {
                 ListenerPhase::Bubbling
             };
+            
             let old_entry = EventListenerEntry {
                 phase: phase,
                 listener: EventListenerType::Additive(listener.clone())
@@ -655,7 +656,7 @@ impl From<AddEventListenerOptionsOrBoolean> for AddEventListenerOptions {
                 options
             },
             AddEventListenerOptionsOrBoolean::Boolean(capture) => {
-                Self { parent: EventListenerOptions { capture } }
+                Self { parent: EventListenerOptions { capture }, passive: false, once: false}
             },
         }
     }
